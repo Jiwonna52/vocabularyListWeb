@@ -15,6 +15,7 @@ import org.springframework.context.annotation.Configuration;
 public class AppConfig {
     @Bean
     public static BookRepository bookRepository() {
+        //예시
         return new MemoryBookRepositoryImpl();
     }
     @Bean
