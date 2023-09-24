@@ -16,6 +16,11 @@ public class MemoryVocabularyRepositoryImpl implements VocabularyRepository{
     }
 
     @Override
+    public List<Vocabulary> findVocabularyListByChapter(String chapterName) {
+        return vocabularyStore.values().stream().filter(vocabulary -> vocabulary.getChapterName().equals(chapterName)).collect(Collectors.toList());
+    }
+
+    @Override
     public List<Vocabulary> findVocabularyListByBookId(Long bookId) {
         /*
         List<Vocabulary> vocabularyList = new ArrayList<>();

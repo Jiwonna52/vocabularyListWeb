@@ -1,20 +1,28 @@
 package NJWproject.vocabularyListWeb.vocabulary;
 
+import NJWproject.vocabularyListWeb.AppConfig;
 import NJWproject.vocabularyListWeb.book.Book;
 import NJWproject.vocabularyListWeb.book.BookService;
 import NJWproject.vocabularyListWeb.book.BookServiceImpl;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class VocabularyServiceTest {
-    private final VocabularyRepository vocabularyRepository = new MemoryVocabularyRepositoryImpl();
-    private final VocabularyService vocabularyService = new VocabularyServiceImpl();
-    private final BookService bookService = new BookServiceImpl();
+    AppConfig appConfig = new AppConfig();
+    VocabularyService vocabularyService;
+    BookService bookService;
+
+    @BeforeEach
+    void config() {
+        vocabularyService = appConfig.vocabularyService();
+        bookService = appConfig.bookService();
+    }
 
     @Test
     void join() {
         //given
-        Vocabulary vocabulary = new Vocabulary(1L, "start", "시작하다", 1L);
+        Vocabulary vocabulary = new Vocabulary(1L, "start", "시작하다", "1", 1L);
 
         //when
         vocabularyService.join(vocabulary);
@@ -28,7 +36,7 @@ public class VocabularyServiceTest {
     void joinWithBook() {
         // given
         Book book = new Book(1L, "RWRB");
-        Vocabulary vocabulary = new Vocabulary(1L, "start", "시작하다", 1L);
+        Vocabulary vocabulary = new Vocabulary(1L, "start", "시작하다", "1", 1L);
 
         // when
         bookService.join(book);
@@ -43,8 +51,8 @@ public class VocabularyServiceTest {
     void findVocabularyListByBookId() {
         // given
         Book book = new Book(1L, "RWRB");
-        Vocabulary vocabulary1 = new Vocabulary(1L, "start", "시작하다", 1L);
-        Vocabulary vocabulary2 = new Vocabulary(2L, "end", "끝내다.", 1L);
+        Vocabulary vocabulary1 = new Vocabulary(1L, "start", "시작하다", "1", 1L);
+        Vocabulary vocabulary2 = new Vocabulary(2L, "end", "끝내다.", "1", 1L);
 
         // when
         bookService.join(book);
@@ -52,7 +60,7 @@ public class VocabularyServiceTest {
         vocabularyService.join(vocabulary2);
 
         // then
-        vocabularyService.findVocabularyById(book.getId()).stream().forEach(vocabulary -> System.out.println(vocabulary.getEnglish() + " " + vocabulary.getKorean()));
+        vocabularyService.findVocabularyByBookId(book.getId()).stream().forEach(vocabulary -> System.out.println(vocabulary.getEnglish() + " " + vocabulary.getKorean()));
 
     }
 }

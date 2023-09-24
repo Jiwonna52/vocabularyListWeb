@@ -4,12 +4,14 @@ public class Vocabulary {
     private Long id;
     private String english;
     private String korean;
+    private String chapterName;
     private Long bookId;
 
-    public Vocabulary(Long id, String english, String korean, Long bookId) {
+    public Vocabulary(Long id, String english, String korean, String chapterName, Long bookId) {
         this.id = id;
         this.english = english;
         this.korean = korean;
+        this.chapterName = chapterName;
         this.bookId = bookId;
     }
 
@@ -29,6 +31,10 @@ public class Vocabulary {
         return english;
     }
 
+    public String getChapterName() {
+        return chapterName;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -43,5 +49,9 @@ public class Vocabulary {
 
     public void setBookId(Long bookId) {
         this.bookId = bookId;
+    }
+
+    public void setChapterName(String chapterName) {
+        this.chapterName = chapterName;
     }
 }

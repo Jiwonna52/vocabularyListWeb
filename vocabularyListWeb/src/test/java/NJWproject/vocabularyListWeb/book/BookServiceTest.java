@@ -1,12 +1,19 @@
 package NJWproject.vocabularyListWeb.book;
 
+import NJWproject.vocabularyListWeb.AppConfig;
+import org.aspectj.lang.annotation.Before;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class BookServiceTest {
-    private final BookRepository bookRepository = new MemoryBookRepositoryImpl();
-    private final BookService bookService = new BookServiceImpl();
+    AppConfig appConfig = new AppConfig();
+    BookService bookService;
 
+    @BeforeEach
+    void config() {
+        bookService = appConfig.bookService();
+    }
     @Test
     void test() {
         // given
