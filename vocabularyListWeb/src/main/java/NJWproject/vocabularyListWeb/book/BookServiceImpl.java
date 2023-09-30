@@ -1,6 +1,11 @@
 package NJWproject.vocabularyListWeb.book;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class BookServiceImpl implements BookService{
+    @Autowired
     private BookRepository bookRepository;
 
     public BookServiceImpl(BookRepository bookRepository) {

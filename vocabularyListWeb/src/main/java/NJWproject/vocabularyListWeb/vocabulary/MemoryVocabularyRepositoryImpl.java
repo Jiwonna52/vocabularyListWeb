@@ -1,8 +1,11 @@
 package NJWproject.vocabularyListWeb.vocabulary;
 
+import org.springframework.stereotype.Component;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
+@Component
 public class MemoryVocabularyRepositoryImpl implements VocabularyRepository{
     private static Map<Long, Vocabulary> vocabularyStore = new HashMap<>();
     @Override
