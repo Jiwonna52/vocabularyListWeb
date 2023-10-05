@@ -18,7 +18,7 @@ DB의 테이블과 1대1 연결되는 Book과 Vocabulary 엔티티를 생성했�
 ### Repository
 주요 기능을 간단하게 구현했다. 나중에 Service로 나눌 예정.
 
-## 7th commit
+## 7th commit(10/5)
 ### book과 vocabulary 목록 반환 기능 구현(Repository)
 엔티티 메니저 쿼리 이용
 ### controller
