@@ -1,4 +1,4 @@
-# vocabularyListWeb
+# 그냥, 영어 단어장(vocabularyListWeb)
 ## 3rd commit (09/24)
 ### AppConfig
 객체 지향을 위해 추상과 구체 클래스를 분리해야 한다. 겉으로 보기에는 객체 지향이 지켜진 것 같으나 BookServiceImpl이나 VocabularyServiceImpl가 Memory~()라는 구체 클래스에 의존해고 있다. 그래서 관심사 분리를 위해 AppConfig라는 클래스를 추가로 생성해 주었다.
@@ -17,3 +17,12 @@ AppConfig 클래스는 객체를 생성하고 연결하는 기능을 가지고 �
 DB의 테이블과 1대1 연결되는 Book과 Vocabulary 엔티티를 생성했다. 과거에 했던 작업을 남겨둘까 하다가 이름도 겹치고 복잡해져서 과감하게 지우기로 결정.
 ### Repository
 주요 기능을 간단하게 구현했다. 나중에 Service로 나눌 예정.
+
+## 7th commit
+### book과 vocabulary 목록 반환 기능 구현(Repository)
+엔티티 메니저 쿼리 이용
+### controller
+controller를 이용해서 model에 값을 넣어서 view로 값을 전달할 수 있게 함.
+### 프론트 화면 구현
+html을 이용해서 간단하게
+
