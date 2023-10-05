@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1>책 등록</h1>
+<form role = "form" action="/books/new" th:object="${bookForm}" method="post">
+    <input type="text" th:field="*{bookName}" placeholder="책 제목을 입력하세요">
+    <button type="submit">책 등록하기</button>
+</form>
+
+</body>
+</html>
