@@ -25,4 +25,7 @@ DB의 테이블과 1대1 연결되는 Book과 Vocabulary 엔티티를 생성했�
 controller를 이용해서 model에 값을 넣어서 view로 값을 전달할 수 있게 함.
 ### 프론트 화면 구현
 html을 이용해서 간단하게
+### 실행 영상
+용량이 너무 커서 티스토리 링크로 대체함.
+https://jiwonna52.tistory.com/manage/posts
 
