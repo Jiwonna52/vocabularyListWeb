@@ -15,7 +15,17 @@
       [[${vo.english}]]
     </div>
     <div>[[${vo.korean}]]</div>
+    <div>
+      <form id = "delete_form" method="post" th:action="@{/{bookId}/vocabularyList/{vocabularyId}/delete (bookId=${book.id}, vocabularyId=${vo.id})}">
+        <input type="hidden" name ="_method" value="delete"/>
+        <button>단어 삭제</button>
+      </form>
+    </div>
+    <div>
+      <button><a th:href="@{/{bookId}/vocabularyList/{vocabularyId}/update (bookId=${book.id}, vocabularyId=${vo.id})}">단어 수정</a></button>
+    </div>
   </li>
 </ul>
+
 </body>
 </html>

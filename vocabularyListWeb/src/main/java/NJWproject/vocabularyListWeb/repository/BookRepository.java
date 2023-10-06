@@ -27,4 +27,16 @@ public class BookRepository {
     public List<Book> findAll() {
         return em.createQuery("select b from Book b", Book.class).getResultList();
     }
+
+    public void delete(Long id) {
+        Book book  = find(id);
+        if (book != null) {
+            em.remove(book);
+        }
+    }
+
+    public void updateBook(Long id, String bookName) {
+        Book book = find(id);
+        book.setBookName(bookName);
+    }
 }

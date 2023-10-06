@@ -7,8 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -39,5 +38,30 @@ public class BookController {
         List<Book> bookList = bookRepository.findAll();
         model.addAttribute("books", bookList);
         return "books/bookList";
+    }
+
+    @DeleteMapping(value = "/bookList/{bookId}/delete")
+    public String delete(@PathVariable("bookId") Long bookId) {
+        bookRepository.delete(bookId);
+
+        return "redirect:/bookList";
+    }
+
+    @GetMapping(value = "/bookList/{bookId}/update")
+    public String bookUpdateForm(@PathVariable("bookId") Long bookId, Model model) {
+        Book book = bookRepository.find(bookId);
+        BookForm form = new BookForm();
+        form.setId(book.getId());
+        form.setBookName(book.getBookName());
+        model.addAttribute("form", form);
+
+        return "books/updateForm";
+
+    }
+
+    @PostMapping(value = "/bookList/{bookId}/update")
+    public String bookUpdate(@PathVariable("bookId") Long bookId, @ModelAttribute("form") BookForm form) {
+        bookRepository.updateBook(bookId, form.getBookName());
+        return "redirect:/bookList";
     }
 }
