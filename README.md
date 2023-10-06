@@ -29,3 +29,8 @@ html을 이용해서 간단하게
 용량이 너무 커서 티스토리 링크로 대체함.
 https://jiwonna52.tistory.com/manage/posts
 
+## 8th commit(10/06)
+### book과 vacabulary update와 delete 기능 구현
+delete의 경우 html에 delete 메소드가 없어서 hidden으로 해줘야 한다.
+update의 경우 병합 감지를 이용해서 변경한다.
+
