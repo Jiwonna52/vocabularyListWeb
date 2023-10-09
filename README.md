@@ -34,3 +34,8 @@ https://jiwonna52.tistory.com/manage/posts
 delete의 경우 html에 delete 메소드가 없어서 hidden으로 해줘야 한다.
 update의 경우 병합 감지를 이용해서 변경한다.
 
+### 9th commit(10/9)
+### 시작 페이지
+index페이지에서 소설 목록이 보이도록 home.html이 시작 페이지가 되도록 고침.
+### 단어 목록 끊어서 가지고 오기
+현재 단어 목록 끊어서 가지고 오도록 개발하는 중. 나중에 ajax를 이용.
