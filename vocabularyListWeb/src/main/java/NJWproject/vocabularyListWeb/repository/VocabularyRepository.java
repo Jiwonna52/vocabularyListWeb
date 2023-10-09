@@ -6,7 +6,10 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public class VocabularyRepository {
@@ -35,5 +38,29 @@ public class VocabularyRepository {
         Vocabulary vocabulary = find(id);
         vocabulary.setEnglish(english);
         vocabulary.setKorean(korean);
+    }
+
+    public Map<Integer, List<Vocabulary>> pagingVocabulary(Long bookId) {
+        List<Vocabulary> list = findAll(bookId);
+        Map<Integer, List<Vocabulary>> map = new HashMap<>();
+        int limit = 3;
+        int count = 0;
+        int page = 1;
+        List<Vocabulary> tmp = new ArrayList<>();
+        if (!list.isEmpty()) {
+            for (int i=0; i<list.size(); i++) {
+                if (count == limit) {
+                    map.put(page, tmp);
+                    tmp.clear();
+                    page++;
+                    count = 0;
+                } else {
+                    tmp.add(list.get(i));
+                    count++;
+                }
+            }
+        }
+
+        return map;
     }
 }

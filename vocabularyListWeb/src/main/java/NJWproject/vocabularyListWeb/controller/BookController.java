@@ -30,7 +30,7 @@ public class BookController {
         book.setBookName(form.getBookName());
         bookRepository.save(book);
 
-        return "redirect:/bookList";
+        return "redirect:/";
     }
 
     @GetMapping(value = "/bookList")

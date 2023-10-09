@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.nio.file.Path;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequiredArgsConstructor
@@ -47,13 +48,18 @@ public class VocabularyController {
 
     @GetMapping(value = "/{bookId}/vocabularyList")
     public String vocabularyList(@PathVariable("bookId") Long bookId, Model model) {
-        List<Vocabulary> vocabularyList = vocabularyRepository.findAll(bookId);
-        model.addAttribute("vocabularies", vocabularyList);
+        //List<Vocabulary> vocabularyList = vocabularyRepository.findAll(bookId);
+        //model.addAttribute("vocabularies", vocabularyList);
         Book book = bookRepository.find(bookId);
         System.out.println(book.getId());
         model.addAttribute("book", book);
+
+        Map<Integer, List<Vocabulary>> map = vocabularyRepository.pagingVocabulary(bookId);
+        model.addAttribute("map", map);
+
         return "vocabularies/vocabularyList";
     }
+
 
     @DeleteMapping(value = "/{bookId}/vocabularyList/{vocabularyId}/delete")
     public String delete(@PathVariable("bookId") Long bookId, @PathVariable("vocabularyId") Long vocabularyId) {
