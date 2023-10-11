@@ -43,22 +43,22 @@ public class VocabularyRepository {
     public Map<Integer, List<Vocabulary>> pagingVocabulary(Long bookId) {
         List<Vocabulary> list = findAll(bookId);
         Map<Integer, List<Vocabulary>> map = new HashMap<>();
-        int limit = 3;
+        int l = 3;
         int count = 0;
         int page = 1;
         List<Vocabulary> tmp = new ArrayList<>();
-        if (!list.isEmpty()) {
-            for (int i=0; i<list.size(); i++) {
-                if (count == limit) {
-                    map.put(page, tmp);
-                    tmp.clear();
-                    page++;
-                    count = 0;
-                } else {
-                    tmp.add(list.get(i));
-                    count++;
-                }
+
+        for (int i=0; i<list.size(); i++) {
+            tmp.add(list.get(i));
+            if (tmp.size() == l) {
+                map.put(page, tmp);
+                page++;
+                tmp = new ArrayList<>();
             }
+        }
+
+        if (tmp.size() != 0) {
+            map.put(page, tmp);
         }
 
         return map;
