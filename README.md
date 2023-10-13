@@ -43,3 +43,7 @@ index페이지에서 소설 목록이 보이도록 home.html이 시작 페이지
 ### 10th commit(10/11)
 ### vocabularyPage
 clear로 리스트를 전부 지울 때는 add에 아무것도 안 들어가더니 new로 리스트 객체를 새로 생성해주니 들어감. 왜?
+
+## vocabulary 3개씩 끊어서 가지고 오기
+### 11th commit
+성공! 처음에는 map으로 전부 가지고 오려했지만, 현재 페이지에 필요한 단어 목록만 가지고 오도록 바꿔줌. 그리고 redirect 부분에 파라미터 넣는 것은 'RedirectAttributes'로 해결~
