@@ -64,34 +64,7 @@ public class VocabularyRepositoryTest {
         vocabulary1.setKorean("시작하다");
         vocabularyRepository.save(vocabulary1);
 
-        Vocabulary vocabulary2 = new Vocabulary();
-        vocabulary2.setBook(book);
-        vocabulary2.setEnglish("end");
-        vocabulary2.setKorean("끝내다.");
-        vocabularyRepository.save(vocabulary2);
 
-        Vocabulary vocabulary3 = new Vocabulary();
-        vocabulary3.setBook(book);
-        vocabulary3.setEnglish("just");
-        vocabulary3.setKorean("그냥");
-        vocabularyRepository.save(vocabulary3);
-
-        Vocabulary vocabulary4 = new Vocabulary();
-        vocabulary4.setBook(book);
-        vocabulary4.setEnglish("do");
-        vocabulary4.setKorean("해");
-        vocabularyRepository.save(vocabulary4);
-
-        Assertions.assertThat(4).isEqualTo(vocabularyRepository.findAll(savedId).size());
-
-        Map<Integer, List<Vocabulary>> map = vocabularyRepository.pagingVocabulary(savedId);
-        //System.out.println(map.size());
-        for (int key : map.keySet()) {
-            System.out.println(key);
-            for (Vocabulary v : map.get(key)) {
-                System.out.println(v.getKorean() + " " + v.getEnglish());
-            }
-        }
     }
 
 

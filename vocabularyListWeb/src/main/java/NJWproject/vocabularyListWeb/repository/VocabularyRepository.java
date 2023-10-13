@@ -40,27 +40,19 @@ public class VocabularyRepository {
         vocabulary.setKorean(korean);
     }
 
-    public Map<Integer, List<Vocabulary>> pagingVocabulary(Long bookId) {
+    public List<Vocabulary> pagingVocabulary(Long bookId, int index) {
         List<Vocabulary> list = findAll(bookId);
-        Map<Integer, List<Vocabulary>> map = new HashMap<>();
-        int l = 3;
-        int count = 0;
-        int page = 1;
-        List<Vocabulary> tmp = new ArrayList<>();
+        List<Vocabulary> pageList = new ArrayList<>();
+        int page = 3;
 
-        for (int i=0; i<list.size(); i++) {
-            tmp.add(list.get(i));
-            if (tmp.size() == l) {
-                map.put(page, tmp);
-                page++;
-                tmp = new ArrayList<>();
+        for (int i=(index-1)*3; i<list.size(); i++) {
+            pageList.add(list.get(i));
+            if (pageList.size() == page) {
+                break;
             }
         }
 
-        if (tmp.size() != 0) {
-            map.put(page, tmp);
-        }
+        return pageList;
 
-        return map;
     }
 }

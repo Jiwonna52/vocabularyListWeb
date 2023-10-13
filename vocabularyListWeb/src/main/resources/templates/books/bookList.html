@@ -10,7 +10,7 @@
 <ul th:each="book: ${books}">
   <li>
     <div class ="bookName">
-      <a th:href="@{/{bookId}/vocabularyList (bookId=${book.id})}">[[${book.bookName}]]</a>
+      <a th:href="@{/{bookId}/1/vocabularyList (bookId=${book.id})}">[[${book.bookName}]]</a>
     </div>
     <div class = "delete">
       <form id = "delete_form" method="post" th:action="@{/bookList/{bookId}/delete (bookId=${book.id})}">
