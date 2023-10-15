@@ -77,9 +77,10 @@ public class VocabularyController {
 
 
     @DeleteMapping(value = "/{bookId}/vocabularyList/{vocabularyId}/delete")
-    public String delete(@PathVariable("bookId") Long bookId, @PathVariable("vocabularyId") Long vocabularyId) {
+    public String delete(@PathVariable("bookId") Long bookId, @PathVariable("vocabularyId") Long vocabularyId, RedirectAttributes attributes) {
         vocabularyRepository.delete(vocabularyId);
-        return "redirect:/{bookId}/vocabularyList";
+        attributes.addAttribute("index", 1);
+        return "redirect:/{bookId}/{index}/vocabularyList";
     }
 
     @GetMapping(value = "/{bookId}/vocabularyList/{vocabularyId}/update")
@@ -99,9 +100,10 @@ public class VocabularyController {
     }
 
     @PostMapping(value = "/{bookId}/vocabularyList/{vocabularyId}/update")
-    public String vocabularyForm(@PathVariable("bookId") Long bookId, @PathVariable("vocabularyId") Long vocabularyId, VocabularyForm form) {
+    public String vocabularyForm(@PathVariable("bookId") Long bookId, @PathVariable("vocabularyId") Long vocabularyId, VocabularyForm form, RedirectAttributes attributes) {
         vocabularyRepository.updateVocabulary(vocabularyId, form.getKorean(), form.getEnglish());
 
-        return "redirect:/{bookId}/vocabularyList";
+        attributes.addAttribute("index", 1);
+        return "redirect:/{bookId}/{index}/vocabularyList";
     }
 }
