@@ -40,12 +40,14 @@ index페이지에서 소설 목록이 보이도록 home.html이 시작 페이지
 ### 단어 목록 끊어서 가지고 오기
 현재 단어 목록 끊어서 가지고 오도록 개발하는 중. 나중에 ajax를 이용.
 
-### 10th commit(10/11)
+## 10th commit(10/11)
 ### vocabularyPage
 clear로 리스트를 전부 지울 때는 add에 아무것도 안 들어가더니 new로 리스트 객체를 새로 생성해주니 들어감. 왜?
 
-## vocabulary 3개씩 끊어서 가지고 오기
-### 11th commit
+## 11th commit
+### vocabulary 3개씩 끊어서 가지고 오기
 성공! 처음에는 map으로 전부 가지고 오려했지만, 현재 페이지에 필요한 단어 목록만 가지고 오도록 바꿔줌. 그리고 redirect 부분에 파라미터 넣는 것은 'RedirectAttributes'로 해결~
-## aws 이용한 배포!
-### https://43.200.170.155:8080/
+## 11.1th commit
+### aws를 이요한 배포, https://43.200.170.155:8080/
+### vocabulary 삭제 및 수정 리다이렉트 주소 변경
+vocabulary 삭제 및 수정 한 후 리다이렉트 url 페이징 주소로 변경
