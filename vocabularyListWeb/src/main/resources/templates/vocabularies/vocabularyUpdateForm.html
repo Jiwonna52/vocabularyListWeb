@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <title>단어 등록</title>
+  <link rel="stylesheet" href="/css/book/updateVocabularyFormStyle.css">
+
 </head>
 <body>
 <h1>단어 등록</h1>
 <form role = "form" th:action = "@{/{bookId}/vocabularyList/{vocabularyId}/update (bookId=${bookId}, vocabularyId=${vocabularyId})}" th:object="${form}" method="post">
   <input type="text" th:field="*{english}" th:placeholder="${form.english}">
   <input type="text" th:field="*{korean}" th:placeholder="${form.korean}">
-
   <button type="submit">단어 등록하기</button>
 </form>
 </body>

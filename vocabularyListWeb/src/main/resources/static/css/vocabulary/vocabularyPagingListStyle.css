@@ -1,32 +1,14 @@
 body {
+    margin-top: 2%;
+    margin-left: 1%;
     font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f0f0f0; /* 배경색 추가 */
 }
 
 h1 {
     margin-bottom: 20px;
-    color: #3498db; /* 제목 색상 변경 */
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-input {
-    padding: 10px;
-    margin-bottom: 10px;
-    width: 300px;
-}
-
-button {
+.newVocabulary {
     padding: 10px 20px;
     background-color: #3498db;
     color: white;
@@ -34,34 +16,42 @@ button {
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #2980b9;
+.vocabulary {
+    margin-bottom: 400px;
 }
 
-/* 수정한 부분: 가로로 표시되도록 수정 */
-.paging {
+.vocabulary li {
     display: flex;
+    list-style-type: none;
+    justify-content: left;
+    height: 100px;
+
 }
 
-.paging ul {
-    padding: 0;
-    list-style: none;
-    display: flex; /* 가로로 표시 */
+.vocabulary .lang {
+    margin-right: 500px;
 }
 
-.paging ul li {
-    margin-right: 10px;
+
+.vocabulary .lang .english {
+    margin-right: 50px;
+    margin-bottom: 30px;
 }
 
-.paging ul li a {
-    text-decoration: none;
-    padding: 5px 10px;
-    border: 1px solid #3498db;
-    color: #3498db;
-    border-radius: 5px;
+.vocabulary .formButtons {
+    padding: 0px 0px;
+    height: 5px;
 }
 
-.paging ul li a:hover {
-    background-color: #3498db;
+.vocabulary .formButtons button {
     color: white;
+    background-color: #3498db;
+    border: none;
+    cursor: pointer;
+}
+
+
+.vocabulary .formButtons .remove {
+    margin-right: 50px;
+    margin-bottom: 30px;
 }
