@@ -1,15 +1,12 @@
 package NJWproject.vocabularyListWeb.repository;
 
-import NJWproject.vocabularyListWeb.VocabularyListWebApplication;
 import NJWproject.vocabularyListWeb.entity.Vocabulary;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Repository
 public class VocabularyRepository {
@@ -27,6 +24,15 @@ public class VocabularyRepository {
 
     public List<Vocabulary> findAll(Long bookId) {
         return em.createQuery("select v from Vocabulary v where v.book.id = :id").setParameter("id", bookId).getResultList();
+    }
+
+    public List<Vocabulary> findByChapter(Long bookId, String chapterName) {
+        return em.createQuery("select v from Vocabulary v where (v.book.id = :id) and (v.chapter = :chapterName)")
+                .setParameter("id", bookId).setParameter("chapterName", chapterName).getResultList();
+    }
+
+    public List<String> findChapterList(Long bookId) {
+        return em.createQuery("SELECT DISTINCT v.chapter From Vocabulary v where v.book.id = :id").setParameter("id", bookId).getResultList();
     }
 
     public void delete(Long vocabularyId) {
@@ -53,6 +59,5 @@ public class VocabularyRepository {
         }
 
         return pageList;
-
     }
 }

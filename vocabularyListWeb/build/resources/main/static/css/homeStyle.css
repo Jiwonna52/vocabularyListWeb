@@ -1,0 +1,62 @@
+body {
+    margin-top: 3%;
+    margin-left: 3%;
+    font-family: Arial, sans-serif;
+
+}
+
+.newBookButton {
+    background-color: #3498db;
+        border: none;
+        width: 300px;
+        height: 90px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        font-size: 30px;
+        margin-bottom: 30px;
+}
+
+.newBookButton a {
+    text-decoration: none;
+    color: white;
+}
+
+.book {
+    display: flex;
+    list-style-type: none;
+    justify-content: left;
+    padding-left: 0;
+    height: 50px;
+}
+
+.book .name {
+    color: black;
+    padding-right: 50px;
+    font-size: 20px;
+    margin-right: 100px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.book .delete button {
+    width: 100px;
+    height: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 25px;
+    background-color: #3498db;
+    border: none;
+    color: white;
+}
+
+
+.book .update button {
+    width: 100px;
+    height: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 25px;
+    background-color: #3498db;
+    border: none;
+    color: white;
+}

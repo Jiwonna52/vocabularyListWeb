@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=, initial-scale=1.0">
+  <title>책 목록</title>
+</head>
+<body>
+<h1>등록한 책 목록</h1>
+<ul th:each="book: ${books}">
+  <li>
+    <div class ="bookName">
+      <a th:href="@{/{bookId}/1/vocabularyList (bookId=${book.id})}">[[${book.bookName}]]</a>
+    </div>
+    <div class = "delete">
+      <form id = "delete_form" method="post" th:action="@{/bookList/{bookId}/delete (bookId=${book.id})}">
+        <input type="hidden" name ="_method" value="delete"/>
+        <button>책 삭제</button>
+      </form>
+    </div>
+    <div class ="bookUpdate">
+      <button><a th:href="@{/bookList/{bookId}/update (bookId=${book.id})}">책 내용 수정</a></button>
+    </div>
+  </li>
+</ul>
+</body>
+</html>

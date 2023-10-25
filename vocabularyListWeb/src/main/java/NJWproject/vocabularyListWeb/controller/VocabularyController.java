@@ -62,9 +62,9 @@ public class VocabularyController {
     public String vocabularyListPaging(@PathVariable("bookId") Long bookId, @PathVariable("index") int index, Model model) {
         List<Vocabulary> list = vocabularyRepository.findAll(bookId);
         List<Vocabulary> pageList = vocabularyRepository.pagingVocabulary(bookId, index);
-
+        int page = 3;
         List<Integer> pageIndex = new ArrayList<>();
-        for (int i=1; i<=((list.size()-1)/3)+1; i++) {
+        for (int i=1; i<=((list.size()-1)/page)+1; i++) {
             pageIndex.add(i);
         }
 

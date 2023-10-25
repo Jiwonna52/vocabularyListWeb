@@ -14,6 +14,8 @@ public class Vocabulary {
     private String english;
     private String korean;
 
+    private String chapter;
+
     public Long getId() {
         return id;
     }
@@ -44,5 +46,13 @@ public class Vocabulary {
 
     public void setKorean(String korean) {
         this.korean = korean;
+    }
+
+    public String getChapter() {
+        return chapter;
+    }
+
+    public void setChapter(String chapter) {
+        this.chapter = chapter;
     }
 }

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>그냥, 단어장</title>
+    <link rel="stylesheet" href="/css/homeStyle.css">
+</head>
+
+<body>
+<button class="newBookButton"><a href="/books/new">새로운 책 등록</a></button>
+
+<ul th:each="book : ${bookList}" class="book">
+    <li>
+        <div class="name">
+            <a th:href="@{/{bookId}/{index}/vocabularyList (bookId=${book.id}, index=${1})}">[[${book.bookName}]]</a>
+        </div>
+    </li>
+    <li>
+        <div class="delete">
+            <form id="delete_form" method="post" th:action="@{/bookList/{bookId}/delete (bookId=${book.id})}">
+                <input type="hidden" name="_method" value="delete" />
+                <button>책 삭제</button>
+            </form>
+        </div>
+    </li>
+    <li>
+        <div class="update">
+            <button><a th:href="@{/bookList/{bookId}/update (bookId=${book.id})}">책 수정</a></button>
+        </div>
+    </li>
+</ul>
+</body>
+
+</html>

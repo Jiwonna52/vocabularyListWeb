@@ -10,4 +10,5 @@ public class VocabularyForm {
     String english;
     String korean;
     Book book;
+    String chapter;
 }
