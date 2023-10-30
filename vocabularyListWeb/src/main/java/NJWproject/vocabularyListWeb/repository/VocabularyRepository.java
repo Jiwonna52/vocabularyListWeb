@@ -46,14 +46,14 @@ public class VocabularyRepository {
         vocabulary.setKorean(korean);
     }
 
-    public List<Vocabulary> pagingVocabulary(Long bookId, int index) {
+    public List<Vocabulary> pagingVocabulary(Long bookId, int page) {
         List<Vocabulary> list = findAll(bookId);
         List<Vocabulary> pageList = new ArrayList<>();
-        int page = 3;
+        int num = 3;
 
-        for (int i=(index-1)*3; i<list.size(); i++) {
+        for (int i=(page-1)*num; i<list.size(); i++) {
             pageList.add(list.get(i));
-            if (pageList.size() == page) {
+            if (pageList.size() == num) {
                 break;
             }
         }
