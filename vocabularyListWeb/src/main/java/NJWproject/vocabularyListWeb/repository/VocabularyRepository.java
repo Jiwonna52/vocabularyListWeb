@@ -60,4 +60,8 @@ public class VocabularyRepository {
 
         return pageList;
     }
+
+    public List<Vocabulary> search(String keyword) {
+        return em.createQuery("SELECT v From Vocabulary v WHERE v.korean Like CONCAT('%',:key,'%')").setParameter("key", keyword).getResultList();
+    }
 }
