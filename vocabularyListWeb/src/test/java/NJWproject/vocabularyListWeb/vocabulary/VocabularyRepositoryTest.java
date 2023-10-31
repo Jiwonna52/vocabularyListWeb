@@ -129,5 +129,65 @@ public class VocabularyRepositoryTest {
 
     }
 
+    @Test
+    @Transactional
+    @Rollback
+    void 단어_검색_기능() {
+        Book book = new Book();
+        book.setBookName("RWRB");
+        Long savedId = bookRepository.save(book);
+        Book findBook = bookRepository.find(savedId);
+
+        Vocabulary vocabulary1 = new Vocabulary();
+        vocabulary1.setBook(book);
+        vocabulary1.setEnglish("start");
+        vocabulary1.setKorean("시작하다");
+        vocabularyRepository.save(vocabulary1);
+
+        Vocabulary vocabulary2 = new Vocabulary();
+        vocabulary2.setBook(book);
+        vocabulary2.setEnglish("end");
+        vocabulary2.setKorean("끝내다");
+        vocabularyRepository.save(vocabulary2);
+
+        List<Vocabulary> searchResult = vocabularyRepository.search("끝내다");
+        Assertions.assertThat(vocabulary2).isEqualTo(searchResult.get(0));
+        System.out.println(searchResult.get(0).getKorean());
+    }
+
+    @Test
+    @Transactional
+    @Rollback
+    void 단어_어러개_검색() {
+        Book book = new Book();
+        book.setBookName("RWRB");
+        Long savedId = bookRepository.save(book);
+        Book findBook = bookRepository.find(savedId);
+
+        Vocabulary vocabulary1 = new Vocabulary();
+        vocabulary1.setBook(book);
+        vocabulary1.setEnglish("start");
+        vocabulary1.setKorean("시작하다");
+        vocabularyRepository.save(vocabulary1);
+
+        Vocabulary vocabulary2 = new Vocabulary();
+        vocabulary2.setBook(book);
+        vocabulary2.setEnglish("end");
+        vocabulary2.setKorean("끝내다");
+        vocabularyRepository.save(vocabulary2);
+
+        Vocabulary vocabulary3 = new Vocabulary();
+        vocabulary3.setBook(book);
+        vocabulary3.setEnglish("end!");
+        vocabulary3.setKorean("끝!");
+        vocabularyRepository.save(vocabulary3);
+
+        List<Vocabulary> searchResult = vocabularyRepository.search("끝");
+        Assertions.assertThat(vocabulary2).isEqualTo(searchResult.get(0));
+        Assertions.assertThat(vocabulary3).isEqualTo(searchResult.get(1));
+        System.out.println(searchResult.get(0).getKorean());
+        System.out.println(searchResult.get(1).getKorean());
+    }
+
 
 }
