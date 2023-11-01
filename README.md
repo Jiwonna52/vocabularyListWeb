@@ -1,5 +1,6 @@
 # 그냥, 영어 단어장(vocabularyListWeb)
 ## URL
+aws EC2 사용<br/>
 http://13.125.65.190:8080/
 ## 기능
 ### Novel
