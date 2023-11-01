@@ -1,4 +1,18 @@
 # 그냥, 영어 단어장(vocabularyListWeb)
+## URL
+http://13.125.65.190:8080/
+## 기능
+### Novel
+[x] 소설 등록
+[] 소설 수정
+[x] 소설 삭제
+### vocabulary
+[x] 단어 등록
+[x] 단어 수정
+[x] 단어 삭제
+[진행 중] 단어 검색
+
+### 
 ## 3rd commit (09/24)
 ### AppConfig
 객체 지향을 위해 추상과 구체 클래스를 분리해야 한다. 겉으로 보기에는 객체 지향이 지켜진 것 같으나 BookServiceImpl이나 VocabularyServiceImpl가 Memory~()라는 구체 클래스에 의존해고 있다. 그래서 관심사 분리를 위해 AppConfig라는 클래스를 추가로 생성해 주었다.
