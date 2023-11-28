@@ -1,5 +1,7 @@
 # 그냥, 영어 단어장(vocabularyListWeb)
 ## URL
+aws Route 53사용<br/>
+http://this-vocabularylist.com:8080/
 aws EC2 사용<br/>
 http://13.125.65.190:8080/
 ## 기능
