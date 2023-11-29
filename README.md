@@ -5,7 +5,7 @@ http://this-vocabularylist.com:8080/
 aws EC2 사용<br/>
 http://13.125.65.190:8080/
 ## 구조
-![구조](https://github.com/Jiwonna52/vocabularyListWeb/assets/69565759/98f0f47d-a18d-4618-92de-a2ef9784665e)
+https://github.com/Jiwonna52/vocabularyListWeb/issues/1#issue-2015912828
 ## 기능
 ### Novel
 [x] 소설 등록<br/>
