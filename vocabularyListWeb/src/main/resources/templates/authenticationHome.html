@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/authenticationHomeStyle.css">
+    <title>Join our Community</title>
+</head>
+
+<body>
+<div class="container">
+    <h1 class="title">Vocabulary List</h1>
+    <div class="form-container">
+        <div class="form-group">
+            <form role="form" action="" th:object="${codeForm}" method="post">
+                <label for="firstName">code</label>
+                <input type="text" th:field="*{code}" id="firstName" placeholder="your code">
+                <button class="submit-button">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

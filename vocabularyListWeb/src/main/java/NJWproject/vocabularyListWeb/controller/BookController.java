@@ -30,7 +30,7 @@ public class BookController {
         book.setBookName(form.getBookName());
         bookRepository.save(book);
 
-        return "redirect:/";
+        return "redirect:/home";
     }
 
     @GetMapping(value = "/bookList")
@@ -44,7 +44,7 @@ public class BookController {
     public String delete(@PathVariable("bookId") Long bookId) {
         bookRepository.delete(bookId);
 
-        return "redirect:/";
+        return "redirect:/home";
     }
 
     @GetMapping(value = "/bookList/{bookId}/update")
@@ -62,6 +62,6 @@ public class BookController {
     @PostMapping(value = "/bookList/{bookId}/update")
     public String bookUpdate(@PathVariable("bookId") Long bookId, @ModelAttribute("form") BookForm form) {
         bookRepository.updateBook(bookId, form.getBookName());
-        return "redirect:/";
+        return "redirect:/home";
     }
 }
